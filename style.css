@@ -19,7 +19,6 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
   perspective: 1000px;
-  cursor: none;
 }
 
 
@@ -164,14 +163,20 @@ body.car-theme {
   animation: fast-orbit 0.5s linear forwards;
 }
 
+a {
+  color: #fff !important;
+}
 
 .social-links {
   display: flex;
   gap: 12px;
   background: rgba(0, 0, 0, 0.3);
   border-radius: 20px;
-  padding: 8px 12px;
   backdrop-filter: blur(5px);
+}
+
+.social-links a i {
+  font-size: 2rem !important;
 }
 
 .social-icon {
