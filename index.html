@@ -11,20 +11,18 @@
             box-sizing: border-box;
             font-family: 'Courier New', monospace;
         }
-
         
         .custom-cursor {
             position: fixed;
             width: 40px;
             height: 40px;
-            background: url('assets/custom_cursor.png') no-repeat center center;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMiI+CiAgPHBhdGggZD0iTTEyIDIyQzE3LjUyMjkgMjIgMjIgMTcuNTIyOSAyMiAxMkMyMiA2LjQ3NzE1IDE3LjUyMjkgMiAxMiAyQzYuNDc3MTUgMiAyIDYuNDc3MTUgMiAxMkMyIDE3LjUyMjkgNi40NzcxNSAyMiAxMiAyMloiLz4KICA8Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSI0IiBmaWxsPSIjZmZmZmZmIi8+Cjwvc3ZnPg==') no-repeat center center;
             background-size: contain;
             pointer-events: none;
             z-index: 9999;
             transform: translate(-50%, -50%);
         }
 
-        
         body {
             background-color: #000;
             color: #fff;
@@ -58,6 +56,7 @@
             z-index: 2;
             opacity: 0;
             transition: opacity 0.5s;
+            background: linear-gradient(45deg, rgba(255,0,0,0.1) 0%, rgba(0,255,0,0.1) 25%, rgba(0,0,255,0.1) 50%, rgba(255,255,0,0.1) 75%, rgba(255,0,255,0.1) 100%);
         }
 
         #hacker-overlay, #snow-overlay {
@@ -73,7 +72,6 @@
         .hidden {
             display: none !important;
         }
-
         
         .controls {
             position: fixed;
@@ -108,7 +106,6 @@
             transform: scale(1.1);
             border-color: rgba(255, 255, 255, 0.8);
         }
-
         
         .volume-control {
             display: flex;
@@ -143,7 +140,6 @@
             background: white;
             cursor: pointer;
         }
-
         
         .transparency-control {
             display: flex;
@@ -156,7 +152,6 @@
             height: 20px;
             color: white;
         }
-
         
         .top-controls {
             position: fixed;
@@ -172,7 +167,6 @@
             border-radius: 20px;
             backdrop-filter: blur(5px);
         }
-
         
         #profile-block {
             position: fixed;
@@ -182,7 +176,7 @@
             width: 820px;
             min-height: 332px;
             background: rgba(0, 0, 0, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(0, 195, 255, 0.5);
             padding: 20px;
             border-radius: 15px;
             z-index: 20;
@@ -190,9 +184,6 @@
             flex-direction: column;
             gap: 15px;
             backdrop-filter: blur(10px);
-            opacity: 0;
-            transform-style: preserve-3d;
-            transition: transform 0.5s ease-out;
             pointer-events: auto;
         }
 
@@ -218,7 +209,7 @@
             border-radius: 50%;
             background: radial-gradient(
                 circle at 10px 10px,
-                var(--primary-color, #00CED1) 10%,
+                #00CED1 10%,
                 transparent 15%
             );
             animation: orbit 3s linear infinite;
@@ -239,6 +230,7 @@
             cursor: pointer;
             pointer-events: auto;
             opacity: 1 !important;
+            border: 2px solid #00CED1;
         }
 
         .profile-info {
@@ -253,22 +245,13 @@
             gap: 10px;
             margin-bottom: 10px;
         }
-
         
-        @font-face {
-            font-family: 'Angel Wish';
-            src: url('assets/Angel_wish.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-        }
-
         #profile-name {
-            font-family: 'Angel Wish', sans-serif;
             font-size: 32px;
             font-weight: bold;
             letter-spacing: 3px;
             color: #fff;
-            filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.7));
+            filter: drop-shadow(0 0 8px rgba(0, 206, 209, 0.7));
             opacity: 1 !important;
         }
 
@@ -418,7 +401,7 @@
             width: 36px;
             height: 36px;
             transition: transform 0.3s ease;
-            filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.7));
+            filter: drop-shadow(0 0 8px rgba(0, 206, 209, 0.7));
             pointer-events: auto;
             opacity: 1 !important;
         }
@@ -426,7 +409,6 @@
         .social-icon:hover {
             transform: scale(1.4) rotateY(15deg);
         }
-
         
         #skills-block {
             position: fixed;
@@ -436,7 +418,7 @@
             width: 820px;
             min-height: 332px;
             background: rgba(0, 0, 0, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(0, 195, 255, 0.5);
             padding: 20px;
             border-radius: 15px;
             z-index: 20;
@@ -446,6 +428,7 @@
             backdrop-filter: blur(10px);
             transform-style: preserve-3d;
             transition: transform 0.5s ease-out;
+            display: none;
         }
 
         .skills-title {
@@ -497,7 +480,6 @@
         #csharp-bar {
             background: linear-gradient(90deg, #43e97b, #38f9d7);
         }
-
         
         #results-button-container {
             position: fixed;
@@ -550,33 +532,6 @@
             border-style: solid;
             border-color: transparent transparent rgba(0, 0, 0, 0.8) transparent;
         }
-
-        
-        .home-theme #profile-block,
-        .home-theme #skills-block {
-            border-color: rgba(0, 195, 255, 0.5);
-        }
-
-        .hacker-theme #profile-block,
-        .hacker-theme #skills-block {
-            border-color: rgba(0, 255, 0, 0.5);
-        }
-
-        .rain-theme #profile-block,
-        .rain-theme #skills-block {
-            border-color: rgba(100, 149, 237, 0.5);
-        }
-
-        .anime-theme #profile-block,
-        .anime-theme #skills-block {
-            border-color: rgba(255, 0, 255, 0.5);
-        }
-
-        .car-theme #profile-block,
-        .car-theme #skills-block {
-            border-color: rgba(255, 165, 0, 0.5);
-        }
-
         
         .glitch {
             animation: glitch 0.2s ease-in-out;
@@ -620,7 +575,6 @@
                 transform: rotate(360deg);
             }
         }
-
         
         .cursor-trail {
             position: fixed;
@@ -632,12 +586,11 @@
             position: absolute;
             width: 6px;
             height: 6px;
-            background-color: rgba(255, 255, 255, 0.8);
+            background-color: rgba(0, 206, 209, 0.8);
             border-radius: 50%;
             transform: translate(-50%, -50%);
             transition: opacity 0.3s ease;
         }
-
         
         #start-screen {
             position: fixed;
@@ -660,10 +613,8 @@
             color: #fff;
             text-align: center;
         }
-
         
         @media (max-width: 430px) {
-            
             #profile-block, #skills-block {
                 width: 90vw;
                 max-width: 350px;
@@ -773,7 +724,6 @@
             .skill-name span {
                 font-size: 14px;
             }
-
             
             .controls {
                 bottom: 20px;
@@ -786,7 +736,6 @@
                 height: 28px;
                 font-size: 12px;
             }
-
             
             .top-controls {
                 bottom: 70px;
@@ -812,7 +761,6 @@
                 width: 10px;
                 height: 10px;
             }
-
             
             #results-button-container {
                 top: 10px;
@@ -828,7 +776,6 @@
                 font-size: 10px;
                 padding: 6px 10px;
             }
-
             
             #start-text {
                 font-size: 18px;
@@ -839,46 +786,39 @@
     <link href="https://fonts.googleapis.com/css2?family=Retro+Gaming&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css" />
 </head>
-<body class="home-theme" onload="initMedia()">
-    
+<body class="home-theme">
     <div class="custom-cursor"></div>
-
     
     <div id="start-screen">
-        <div id="start-text"></div>
+        <div id="start-text">Click to Enter</div>
     </div>
 
     <div class="container">
-        
-        <video id="background" autoplay loop muted playsinline webkit-playsinline>
-            <source src="assets/background.mp4" type="video/mp4">
+        <video id="background" autoplay loop muted playsinline>
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-digital-background-1141-large.mp4" type="video/mp4">
         </video>
-
         
         <div class="glitch-overlay"></div>
-        <div id="hacker-overlay" class="hidden">
-            
-        </div>
-        <div id="snow-overlay" class="hidden">
-            
-        </div>
-
+        <div id="hacker-overlay" class="hidden"></div>
+        <div id="snow-overlay" class="hidden"></div>
 
         <div id="profile-block">
             <div class="profile-header">
                 <div class="profile-container">
-                    <img src="assets/chuckabi.jpg" alt="Profile" class="profile-picture">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgdmlld0JveD0iMCAwIDE1MCAxNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPGNpcmNsZSBjeD0iNzUiIGN5PSI3NSIgcj0iNzUiIGZpbGw9IiMwMDIwMzAiLz4KICA8cGF0aCBkPSJNNzUgMTVDMTA0LjMzIDE1IDEyOCAzOC42NyAxMjggNjhDMTI4IDk3LjMzIDEwNC4zMyAxMjEgNzUgMTIxQzQ1LjY3IDEyMSAyMiA5Ny4zMyAyMiA2OEMyMiAzOC42NyA0NS42NyAxNSA3NSAxNVoiIGZpbGw9IiMwMENDQzAiLz4KICA8Y2lyY2xlIGN4PSI3NSIgY3k9IjY4IiByPSIzMCIgZmlsbD0iIzAwMDAwMCIvPgogIDxwYXRoIGQ9Ik03NSA0MUM4Ni4wNDYgNDEgOTUgNDkuOTU0IDk1IDYxQzk1IDcyLjA0NiA4Ni4wNDYgODEgNzUgODFDNjMuOTU0IDgxIDU1IDcyLjA0NiA1NSA2MUM1NSA0OS45NTQgNjMuOTU0IDQxIDc1IDQxWiIgZmlsbD0iIzAwQ0NDMCIvPgogIDxwYXRoIGQ9Ik04OCA4OEM4OCA4OCA5MCAxMDAgNzUgMTAwQzYwIDEwMCA2MiA4OCA2MiA4OEM2MiA4OCA2OCA5MiA3NSA5MkM4MiA5MiA4OCA4OCA4OCA4OFoiIGZpbGw9IiMwMENFQ0UiLz4KICA8Y2lyY2xlIGN4PSI1OCIgY3k9IjU2IiByPSI1IiBmaWxsPSIjRkZGRkZGIi8+CiAgPGNpcmNsZSBjeD0iOTIiIGN5PSI1NiIgcj0iNSIgZmlsbD0iI0ZGRkZGRiIvPgo8L3N2Zz4=" alt="Profile" class="profile-picture">
                 </div>
                 <div class="profile-info">
                     <div class="name-and-badges">
                         <div id="profile-name">AIMLESS</div>
                     </div>
-                    <div id="profile-bio"></div>
+                    <div id="profile-bio">
+                        <p>Passionate developer and creative technologist exploring the intersection of code and art.</p>
+                        <p>Building immersive experiences that challenge conventional interfaces and push boundaries.</p>
+                    </div>
                 </div>
             </div>
 
             <div class="profile-footer">
-
                 <div class="social-links">
                     <a href="https://discord.com/channels/@me/1255591684805230706" target="_blank" style="text-decoration: none;">
                         <i class="ri-discord-fill" style="font-size: 2rem; color: #fff;"></i>
@@ -891,7 +831,6 @@
                     </a>
                 </div>
 
-
                 <div class="visitor-counter">
                     <svg class="visitor-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
@@ -903,12 +842,10 @@
             </div>
         </div>
 
-
         <div id="skills-block" class="hidden">
             <h2 class="skills-title">Programming Skills</h2>
             <div class="skill">
                 <div class="skill-name">
-                    <img src="assets/python.png" alt="Python" class="skill-icon">
                     <span>Python</span>
                     <span>87%</span>
                 </div>
@@ -918,7 +855,6 @@
             </div>
             <div class="skill">
                 <div class="skill-name">
-                    <img src="assets/cpp.png" alt="C++" class="skill-icon">
                     <span>C++</span>
                     <span>75%</span>
                 </div>
@@ -928,7 +864,6 @@
             </div>
             <div class="skill">
                 <div class="skill-name">
-                    <img src="assets/csharp.png" alt="C#" class="skill-icon">
                     <span>C#</span>
                     <span>80%</span>
                 </div>
@@ -938,12 +873,10 @@
             </div>
         </div>
 
-
         <div id="results-button-container" class="hidden">
             <button id="results-theme">View Results</button>
             <div id="results-hint" class="hidden">Click again to return to profile</div>
         </div>
-
 
         <div class="controls">
             <div id="home-theme" class="theme-button">1</div>
@@ -952,7 +885,6 @@
             <div id="anime-theme" class="theme-button">4</div>
             <div id="car-theme" class="theme-button">5</div>
         </div>
-
 
         <div class="top-controls">
             <div class="volume-control">
@@ -971,27 +903,160 @@
         </div>
     </div>
 
-
-    <audio id="background-music" loop>
-        <source src="assets/background_music.mp3" type="audio/mp3">
-    </audio>
-    <audio id="hacker-music" loop muted>
-        <source src="assets/hacker_music.mp3" type="audio/mp3">
-    </audio>
-    <audio id="rain-music" loop muted>
-        <source src="assets/rain_music.mp3" type="audio/mp3">
-    </audio>
-    <audio id="anime-music" loop muted>
-        <source src="assets/anime_music.mp3" type="audio/mp3">
-    </audio>
-    <audio id="car-music" loop muted>
-        <source src="assets/car_music.mp3" type="audio/mp3">
-    </audio>
-
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-
-
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Elements
+            const startScreen = document.getElementById('start-screen');
+            const backgroundVideo = document.getElementById('background');
+            const volumeSlider = document.getElementById('volume-slider');
+            const transparencySlider = document.getElementById('transparency-slider');
+            const profileBlock = document.getElementById('profile-block');
+            const skillsBlock = document.getElementById('skills-block');
+            const resultsButton = document.getElementById('results-theme');
+            const resultsHint = document.getElementById('results-hint');
+            const profilePicture = document.querySelector('.profile-picture');
+            const themeButtons = document.querySelectorAll('.theme-button');
+            const customCursor = document.querySelector('.custom-cursor');
+            
+            // Visitor counter
+            let visitorCount = localStorage.getItem('visitorCount');
+            if (!visitorCount) {
+                visitorCount = 0;
+            } else {
+                visitorCount = parseInt(visitorCount);
+            }
+            visitorCount++;
+            localStorage.setItem('visitorCount', visitorCount);
+            document.getElementById('visitor-count').textContent = visitorCount;
+            
+            // Start screen
+            startScreen.addEventListener('click', () => {
+                gsap.to(startScreen, {
+                    opacity: 0,
+                    duration: 1,
+                    onComplete: () => {
+                        startScreen.style.display = 'none';
+                        backgroundVideo.muted = false;
+                        backgroundVideo.volume = volumeSlider.value;
+                        document.getElementById('results-button-container').classList.remove('hidden');
+                    }
+                });
+            });
+            
+            // Volume control
+            volumeSlider.addEventListener('input', () => {
+                backgroundVideo.volume = volumeSlider.value;
+                document.getElementById('volume-icon').innerHTML = volumeSlider.value > 0 ? 
+                    '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path>' : 
+                    '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path>';
+            });
+            
+            // Transparency control
+            transparencySlider.addEventListener('input', () => {
+                profileBlock.style.opacity = transparencySlider.value;
+                skillsBlock.style.opacity = transparencySlider.value;
+            });
+            
+            // Profile picture click to show skills
+            profilePicture.addEventListener('click', () => {
+                profileBlock.style.display = 'none';
+                skillsBlock.style.display = 'flex';
+                gsap.fromTo(skillsBlock, 
+                    { opacity: 0, scale: 0.9 },
+                    { opacity: 1, scale: 1, duration: 0.5 }
+                );
+                
+                // Animate skill bars
+                setTimeout(() => {
+                    document.getElementById('python-bar').style.width = '87%';
+                    document.getElementById('cpp-bar').style.width = '75%';
+                    document.getElementById('csharp-bar').style.width = '80%';
+                }, 300);
+            });
+            
+            // Results button
+            let resultsVisible = false;
+            resultsButton.addEventListener('click', () => {
+                if (!resultsVisible) {
+                    profileBlock.style.display = 'none';
+                    skillsBlock.style.display = 'flex';
+                    gsap.fromTo(skillsBlock, 
+                        { opacity: 0, scale: 0.9 },
+                        { opacity: 1, scale: 1, duration: 0.5 }
+                    );
+                    resultsButton.textContent = 'Back to Profile';
+                    resultsVisible = true;
+                    
+                    // Show hint tooltip
+                    resultsHint.classList.remove('hidden');
+                    setTimeout(() => {
+                        resultsHint.classList.add('hidden');
+                    }, 2000);
+                } else {
+                    skillsBlock.style.display = 'none';
+                    profileBlock.style.display = 'flex';
+                    gsap.fromTo(profileBlock, 
+                        { opacity: 0, scale: 0.9 },
+                        { opacity: 1, scale: 1, duration: 0.5 }
+                    );
+                    resultsButton.textContent = 'View Results';
+                    resultsVisible = false;
+                }
+            });
+            
+            // Theme switching
+            themeButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    document.body.className = button.id.replace('-theme', '') + '-theme';
+                    themeButtons.forEach(b => b.style.borderColor = 'rgba(255, 255, 255, 0.3)');
+                    button.style.borderColor = '#00CED1';
+                    
+                    // Apply glitch effect
+                    profileBlock.classList.add('glitch');
+                    setTimeout(() => profileBlock.classList.remove('glitch'), 300);
+                });
+            });
+            
+            // Custom cursor
+            document.addEventListener('mousemove', (e) => {
+                customCursor.style.left = `${e.clientX}px`;
+                customCursor.style.top = `${e.clientY}px`;
+            });
+            
+            // Cursor trail effect
+            const trailDots = [];
+            const trailLength = 10;
+            
+            for (let i = 0; i < trailLength; i++) {
+                const dot = document.createElement('div');
+                dot.classList.add('cursor-trail-dot');
+                dot.style.opacity = 0;
+                document.body.appendChild(dot);
+                trailDots.push(dot);
+            }
+            
+            let dotIndex = 0;
+            document.addEventListener('mousemove', (e) => {
+                const dot = trailDots[dotIndex];
+                dot.style.left = `${e.clientX}px`;
+                dot.style.top = `${e.clientY}px`;
+                dot.style.opacity = 0.8;
+                
+                setTimeout(() => {
+                    dot.style.opacity = 0;
+                }, 300);
+                
+                dotIndex = (dotIndex + 1) % trailLength;
+            });
+            
+            // Initialize skill bars
+            setTimeout(() => {
+                document.getElementById('python-bar').style.width = '87%';
+                document.getElementById('cpp-bar').style.width = '75%';
+                document.getElementById('csharp-bar').style.width = '80%';
+            }, 1000);
+        });
+    </script>
 </body>
 </html>
